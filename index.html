@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Three.js Scroll Animation</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto+Slab:wght@400;700&display=swap');
+
+      body {
+        --gap: 40em;
+        margin: 0;
+        font-family: 'Roboto Slab', serif;
+        color: #fff;
+        background: linear-gradient(180deg, #0f578e, #8b1407);
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+        box-sizing: border-box;
+      }
+
+      .logo {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5em;
+        color: #fff;
+        text-transform: uppercase;
+      }
+
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 4px 0;
+      }
+
+      #container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding-top: 5em;
+      }
+      #three-canvas {
+        z-index: -1;
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+      .content-panel, .hero-panel {
+        width: 80%;
+        border-radius: 10px;
+        padding: 2em;
+        margin-bottom: var(--gap);
+      }
+      .content-panel {
+        height: auto;
+      }
+      .hero-panel {
+        height: auto;
+      }
+      .hero-panel h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 10em;
+        margin-bottom: 0.5em;
+      }
+      .content-panel h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 4em;
+        margin-bottom: 0.5em;
+      }
+      p {
+        font-size: 2em;
+      }
+      a { 
+        color: #fff;
+      }
+      .content-panel p {
+        color: #e0e0e0;
+      }
+      .hero-panel#footer {
+        margin-bottom: 5em;
+      }
+    </style>
+    <script type="importmap">
+      {
+				"imports": {
+					"three": "https://cdn.jsdelivr.net/npm/three@0.161/build/three.module.js",
+          "jsm/": "https://cdn.jsdelivr.net/npm/three@0.161/examples/jsm/"
+        }
+			}
+    </script>
+  </head>
+  <body>
+     <nav>
+      <div class="logo">Robot Bobby</div>
+      <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+    <div id="container">
+      <canvas id="three-canvas"></canvas>
+      <!-- Hero Section -->
+      <div class="hero-panel">
+        <h1>WebGL2</h1>
+        <p>Interactive 3D and 2D graphics</p>
+        <p>No need for plugins.</p>
+      </div>
+
+      <!-- Feature 1: Advanced Texture Handling -->
+      <div class="content-panel">
+        <h2>Advanced Texture Handling</h2>
+        <p>More control over textures, 3D textures, multisample textures</p>
+        <p>Higher-quality graphics for games and applications.</p>
+      </div>
+
+      <!-- Feature 2: Transform Feedback -->
+      <div class="content-panel">
+        <h2>Transform Feedback</h2>
+        <p>Allows WebGL2 to capture output from the vertex shader and store it in a buffer.</p>
+        <p>Useful in particle systems, physics, where you need to re-use the output of the vertex shader.</p>
+      </div>
+
+      <!-- Feature 3: Multiple Render Targets (MRT) -->
+      <div class="content-panel">
+        <h2>Multiple Render Targets (MRT)</h2>
+        <p>Write to multiple textures simultaneously</p>
+        <p>Allows for more advanced shading techniques like deferred rendering</p>
+      </div>
+
+      <!-- Feature 4: Geometry Instancing -->
+      <div class="content-panel">
+        <h2>Geometry Instancing</h2>
+        <p>Lets you render many instances more efficiently.</p>
+        <p>Reduces the overhead and is useful in rendering large numbers of objects, like vegetation, particles, or crowds.</p>
+      </div>
+
+      <!-- Feature 5: Uniform Buffer Objects (UBOs) -->
+      <div class="content-panel">
+        <h2>Uniform Buffer Objects (UBOs)</h2>
+        <p>Allow data sharing between multiple shaders.</p>
+        <p>More efficient management of global variables</p>
+      </div>
+
+      <!-- Footer Section -->
+      <div class="hero-panel" id="footer">
+        <h1>Explore More</h1>
+        <p>New possibilities for web-based graphics</p>
+        <p>Dive deeper, check out the <a href="https://registry.khronos.org/webgl/specs/latest/2.0/" target="_blank">official documentation.</a></p>
+      </div>
+    </div>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
