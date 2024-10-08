@@ -12,4 +12,4 @@ A simple Three.js application that loads an OBJ model, adds a matcap material, a
 - **Scroll Animation**: Modify the scroll behavior by adjusting the `goalPos` and `rate` variables in the `animate` function.
 
 
-Watch the tutorial on [YouTube]()
+Watch the tutorial on [YouTube](https://youtu.be/1qpeo5ewz_8)
